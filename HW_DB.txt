@@ -1,0 +1,38 @@
+ 1 уровень сложности: (1) Описать связи между таблицами БД "песочница"
+
+(2) Вывести страны клиентов (БД platform)
+
+
+(3) Вывести пользователей без пароля (БД platform)
+
+
+(4) Вывести страны донаторов с максимальным и минимальным пожертвованиями (БД platform)
+
+----------------------------------------------------------------------------------------------------
+1.
+Customers. CustomerID <-> Orders. CustomerID
+Categories. CategoryID <-> Products. CategoryID
+Employees. EmployeeID<-> Orders. EmployeeID
+OrderDetails. ProductID<-> Products. ProductID
+OrderDetails. OrderID<-> Orders. OrderID
+Shippers. ShipperID<-> Orders. ShipperID
+Suppliers. SupplierID<-> Products. SupplierID
+
+2.
+select country
+from users
+
+3.
+select users.country
+from users
+join donations on donations.donator_id=users.user_id
+order by donations.amount desc
+limit 1;
+
+3.1.
+select users.country
+from users
+join donations on donations.donator_id=users.user_id
+order by donations.amount asc
+limit 1;
+
